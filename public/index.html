@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title> – Sewa Mobil Jember</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,400;0,500;0,600;0,700;1,700;1,800&display=swap');
+:root{--bg:#050505;--panel:#0c0c0d;--card:#111113;--line:#25252a;--or:#e20000;--or2:#e20000;--ink:#f2f2f2;--muted:#9a9a9f}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:"Exo 2",system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--bg);color:var(--ink);line-height:1.55;font-size:15px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+a{color:inherit}
+/* header */
+header{position:sticky;top:0;z-index:10;background:rgba(5,5,5,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px;flex-wrap:wrap}
+.logo{font-style:italic;font-weight:800;font-size:1.6rem;letter-spacing:.02em;line-height:1}
+.logo b{color:var(--or)}
+.logo small{display:block;font-size:.5rem;letter-spacing:.35em;font-weight:500;font-style:normal;color:var(--muted);margin-top:3px}
+nav{display:flex;gap:26px;flex-wrap:wrap;align-items:center}
+nav button{border:0;background:none;padding:6px 0;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;border-bottom:2px solid transparent;border-radius:0;color:var(--ink)}
+nav button:hover,nav button.on{color:var(--or);border-color:var(--or)}
+button,.btn{font:inherit;cursor:pointer;border:1px solid #3a3a40;background:transparent;color:var(--ink);padding:11px 22px;border-radius:2px;text-decoration:none;display:inline-block;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;transition:all .2s}
+button:hover,.btn:hover{border-color:var(--or);color:var(--or)}
+button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--or);outline-offset:2px}
+.primary{background:var(--or);border-color:var(--or);color:#fff;box-shadow:0 0 22px rgba(255,90,10,.35)}
+.primary:hover{background:var(--or2);border-color:var(--or2);color:#fff}
+button:disabled{opacity:.6;cursor:wait}
+/* hero */
+.hero{position:relative;overflow:hidden;min-height:560px;background:
+ radial-gradient(ellipse at 72% 45%,rgba(255,90,10,.22),transparent 55%),
+ linear-gradient(180deg,#0a0a0b,#050505)}
+.hero:before{content:"";position:absolute;inset:0;background:
+ repeating-linear-gradient(90deg,transparent 0 118px,rgba(255,255,255,.035) 118px 120px),
+ linear-gradient(180deg,rgba(255,255,255,.05),transparent 30%)}
+.hero:after{content:"";position:absolute;left:0;right:0;bottom:0;height:35%;background:linear-gradient(0deg,#050505,transparent)}
+.hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.3fr);align-items:center;gap:10px;padding-block:70px 50px}
+.hero h1{font-style:italic;font-weight:800;text-transform:uppercase;font-size:clamp(2.1rem,5vw,3.6rem);line-height:1.02;margin:0 0 6px}
+.hero h1 em{color:var(--or);font-style:italic;display:block}
+.hero .bar{width:210px;height:3px;background:var(--or);margin:12px 0 22px}
+.hero p{color:#cfcfd2;max-width:38ch;margin:0 0 26px;font-size:.92rem}
+.hero .cta{display:flex;gap:14px;flex-wrap:wrap}
+.hero .car{filter:drop-shadow(0 18px 40px rgba(255,90,10,.35))}
+.hero .car svg{width:100%;color:#2a2a2e}
+.hero .photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:70% 60%;z-index:0;-webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.35) 30%,#000 55%);mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.35) 30%,#000 55%)}
+@media(max-width:900px){.hero .photo{-webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,.35),#000 60%);mask-image:linear-gradient(180deg,rgba(0,0,0,.35),#000 60%);opacity:.8}}
+.stats{position:relative;z-index:3;margin-top:-28px}
+.stats .box{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.stat{background:#0a0a0b;padding:18px 20px;display:flex;align-items:center;gap:14px}
+.stat svg{width:34px;height:34px;color:var(--or);flex:none}
+.stat b{display:block;font-size:1.35rem;font-weight:700;line-height:1.1}
+.stat span{font-size:.62rem;letter-spacing:.2em;color:var(--muted);text-transform:uppercase}
+/* panels */
+.panel,form,.sec{border:1px solid var(--line);background:var(--panel)}
+.sec{margin-top:16px;padding:26px}
+.lbl{color:var(--or);font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;font-weight:600;margin-bottom:12px}
+h2{font-style:italic;font-weight:800;text-transform:uppercase;font-size:clamp(1.6rem,3.2vw,2.3rem);line-height:1.08;margin:0 0 12px}
+h2 em{font-style:italic;color:var(--or)}
+.muted{color:var(--muted)}
+.two{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,2.2fr);gap:26px}
+/* telemetry */
+.tele{display:grid;grid-template-columns:minmax(0,1.9fr) 190px;gap:0;border:1px solid var(--line)}
+.tabs{display:flex;border-bottom:1px solid var(--line);overflow-x:auto}
+.tabs button{border:0;border-right:1px solid var(--line);border-radius:0;font-size:.62rem;padding:9px 18px;white-space:nowrap}
+.tabs button[aria-pressed=true]{background:#17171a;color:var(--or);box-shadow:inset 0 2px 0 var(--or)}
+.chart{padding:12px}
+.chart svg{width:100%;display:block}
+.side{border-left:1px solid var(--line);padding:18px;display:flex;flex-direction:column;gap:14px}
+.side .k{font-size:.58rem;letter-spacing:.2em;color:var(--muted);text-transform:uppercase}
+.side .v{font-size:.85rem}
+.side .big{font-size:1.5rem;font-weight:700;color:var(--or)}
+/* cars */
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 18px}
+.filters button{padding:8px 16px}
+.filters button[aria-pressed=true]{border-color:var(--or);color:var(--or);background:rgba(255,90,10,.08)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:16px}
+.car-card{background:var(--card);border:1px solid var(--line);display:flex;flex-direction:column;transition:border-color .2s}
+.car-card:hover,.car-card.sel{border-color:var(--or)}
+.pic{aspect-ratio:16/9;background:radial-gradient(ellipse at 50% 100%,rgba(255,90,10,.28),#0a0a0b 70%);display:grid;place-items:center;overflow:hidden;border-bottom:1px solid var(--line)}
+.pic svg{width:86%;color:#d6d6d9}
+.pic img{width:100%;height:100%;object-fit:cover}
+.info{padding:14px 16px 0;flex:1}
+.info h3{font-weight:700;text-transform:uppercase;font-size:1rem;letter-spacing:.04em;margin:0}
+.info .cat{font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.mini{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:14px 0}
+.mini div{font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.mini b{display:block;color:var(--ink);font-size:.95rem;letter-spacing:0;text-transform:none}
+.price{font-size:1.3rem;font-weight:700;color:var(--or);margin-bottom:12px}
+.price span{font-size:.7rem;color:var(--muted);font-weight:400}
+.car-card .go{width:100%;border:0;border-radius:0;padding:12px;background:var(--or);color:#fff}
+.car-card .go:hover{background:var(--or2)}
+/* specs */
+.specs{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1.1fr);gap:24px;align-items:center}
+.specs table td{font-size:.74rem;padding:7px 6px;border-bottom:1px solid var(--line)}
+.specs table td:first-child{color:var(--muted);text-transform:uppercase;letter-spacing:.1em;font-size:.62rem;width:42%}
+.engine svg{width:100%;color:var(--or)}
+.icons{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px;text-align:center;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--or)}
+.icons svg{width:36px;height:36px;display:block;margin:0 auto 6px}
+/* aero */
+.aero{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,2fr) 190px;gap:20px;align-items:center}
+.aero .photo{width:100%;display:block;aspect-ratio:16/9;object-fit:cover;object-position:center 65%;-webkit-mask-image:radial-gradient(ellipse at 50% 55%,#000 55%,transparent 100%);mask-image:radial-gradient(ellipse at 50% 55%,#000 55%,transparent 100%)}
+.aero .car svg{width:100%;color:#2a2a2e;filter:drop-shadow(0 0 24px rgba(255,90,10,.4))}
+.kv .k{font-size:.58rem;letter-spacing:.18em;color:var(--muted);text-transform:uppercase;margin-top:12px}
+.kv .v{font-size:1.15rem;font-weight:700}
+.kv .or{color:var(--or)}
+/* steps */
+.steps{display:grid;grid-template-columns:minmax(0,1fr) 70px minmax(0,1fr) 190px;gap:16px;align-items:center}
+.ph{border:1px solid var(--line);aspect-ratio:16/8;display:grid;place-items:center;background:radial-gradient(ellipse at 50% 100%,#1b1b1e,#0a0a0b);position:relative}
+.ph svg{width:70%;color:#555}
+.ph.after svg{color:#c9c9cc}.ph.after{background:radial-gradient(ellipse at 50% 100%,rgba(255,90,10,.28),#0a0a0b 70%)}
+.ph span{position:absolute;top:8px;left:12px;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase}
+.ph .shot{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ph span{z-index:1;text-shadow:0 1px 8px #000}
+.arrow{text-align:center;font-size:.58rem;letter-spacing:.14em;color:var(--muted);text-transform:uppercase}
+.arrow i{display:block;height:1px;background:var(--or);margin-top:6px}
+/* testi */
+.testi{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+.t{display:flex;gap:12px;align-items:flex-start;font-size:.85rem;color:#d3d3d6}
+.av{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--or),#5a1f00);flex:none;display:grid;place-items:center;font-weight:700}
+.t small{display:block;color:var(--muted);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase}
+.t b{display:block;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;margin-top:6px}
+/* form */
+.cta-sec{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,2.2fr);gap:30px;align-items:start}
+form{background:transparent;border:0;padding:0}
+.row{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-bottom:10px}
+label{display:block;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+input,select,textarea{width:100%;font:inherit;font-size:.85rem;padding:11px 12px;border:1px solid var(--line);border-radius:2px;background:#0a0a0b;color:var(--ink);color-scheme:dark}
+.total{font-size:1.9rem;font-weight:800;font-style:italic;color:var(--or)}
+.msg{padding:12px 14px;margin-top:14px;display:none;border:1px solid}
+.msg.ok{display:block;border-color:#2f6b45;background:#0b1a11}.msg.err{display:block;border-color:#7a2e2a;background:#1f0f0e}
+.msg a{color:var(--or)}
+.booked{font-size:.75rem;color:var(--muted);margin-top:5px}
+table{width:100%;border-collapse:collapse;font-size:.88rem}
+td,th{padding:10px 8px;border-bottom:1px solid var(--line);text-align:left}
+th{color:var(--muted);font-weight:500;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase}
+.tablewrap{overflow-x:auto}
+.tag{padding:2px 10px;border:1px solid var(--or);color:var(--or);font-size:.72rem}
+.terms{color:var(--muted);margin:0;padding-left:18px}.terms li{margin-bottom:6px}
+/* footer */
+footer{margin-top:16px;border-top:1px solid var(--line);padding:34px 0 20px;background:#070708}
+.fgrid{display:grid;grid-template-columns:1.4fr repeat(3,1fr) 1.4fr;gap:26px}
+footer h4{font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;margin:0 0 12px}
+footer ul{list-style:none;margin:0;padding:0;color:var(--muted);font-size:.8rem}
+footer li{margin-bottom:6px}
+footer a{text-decoration:none}footer a:hover{color:var(--or)}
+.copy{margin-top:26px;padding-top:14px;border-top:1px solid var(--line);color:var(--muted);font-size:.7rem;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+@media(max-width:900px){
+ .hero .wrap,.two,.cta-sec,.specs,.aero,.steps,.tele{grid-template-columns:1fr}
+ .side{border-left:0;border-top:1px solid var(--line)}
+ .fgrid{grid-template-columns:1fr 1fr}
+ nav{gap:14px}
+ .arrow{display:none}
+}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <div class="logo"><b>JEMBER</b><small>SPORT CAR RENTAL</small></div>
+  <nav>
+    <button data-go="top" class="on">Beranda</button>
+    <button data-go="armada">Koleksi</button>
+    <button data-go="performa">Performa</button>
+    <button data-go="proses">Proses</button>
+    <button data-go="cek">Cek pesanan</button>
+    <button data-go="syarat">Syarat sewa</button>
+  </nav>
+  <div style="display:flex;gap:10px;flex-wrap:wrap">
+    <a class="btn" id="waTop" target="_blank" rel="noopener">WhatsApp</a>
+    <button class="primary" data-go="pesan">Pesan sekarang ›</button>
+  </div>
+</div></header>
+
+<div id="top" class="hero">
+  <img class="photo" src="img/hero.jpg" alt="Mobil sport Laju Prestige" onload="document.querySelector('.hero .car').style.visibility='hidden'" onerror="this.remove()">
+  <div class="wrap">
+    <div>
+      <h1>Dibangun untuk<em>kecepatan.</em>Disewakan untuk<em>Anda.</em></h1>
+      <div class="bar"></div>
+      <p>Koleksi mobil sport dan supercar untuk akhir pekan, pernikahan, atau perjalanan bisnis. Lepas kunci atau dengan sopir pribadi. Setiap unit, setiap detail, setiap perjalanan.</p>
+      <div class="cta"><button class="primary" data-go="armada">Lihat koleksi ›</button><button data-go="pesan">Pesan mobil ▷</button></div>
+    </div>
+    <div class="car">
+      <svg viewBox="0 0 400 120" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M14 86c0-8 4-14 14-17l54-10c22-17 46-27 78-27 40 0 66 12 92 31l92 12c10 2 16 8 16 18v4c0 4-3 6-7 6h-30M60 92H21c-4 0-7-2-7-6M117 92h148" fill="#0d0d0f"/><path d="M96 58c18-12 38-19 62-19 30 0 52 8 74 22M188 40l2 22" stroke="#ff5a0a"/><path d="M30 78l60-9M250 62l100 14" stroke="#ff5a0a" stroke-width="2.4"/><circle cx="88" cy="92" r="24" fill="#080809"/><circle cx="88" cy="92" r="10" stroke="#ff5a0a"/><circle cx="292" cy="92" r="24" fill="#080809"/><circle cx="292" cy="92" r="10" stroke="#ff5a0a"/></svg>
+    </div>
+  </div>
+</div>
+
+<div class="wrap stats"><div class="box">
+  <div class="stat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="13" r="8"/><path d="M12 13l4-4M9 3h6"/></svg><div><b>2,7 dtk</b><span>0–100 km/j</span></div></div>
+  <div class="stat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 17a9 9 0 1118 0"/><path d="M12 17l5-6"/></svg><div><b>330</b><span>Km/j maks</span></div></div>
+  <div class="stat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><path d="M12 4v16M4 12h16"/></svg><div><b id="statCars">–</b><span>Unit armada</span></div></div>
+  <div class="stat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><path d="M12 7v5l3 2"/></svg><div><b>820</b><span>HP tertinggi</span></div></div>
+  <div class="stat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 20V10M11 20V4M17 20v-7M22 20H3"/></svg><div><b>24 jam</b><span>Layanan</span></div></div>
+</div></div>
+
+<main class="wrap">
+
+  <section id="performa" class="sec">
+    <div class="two">
+      <div>
+        <div class="lbl">Telemetri performa</div>
+        <h2>Data nyata.<br>Hasil nyata.</h2>
+        <p class="muted">Setiap unit kami dirawat dan diuji berkala. Performa terbaik bukan di brosur, tapi di jalan.</p>
+        <button data-go="armada">Lihat armada</button>
+      </div>
+      <div class="tele">
+        <div>
+          <div class="tabs" id="tabs"></div>
+          <div class="chart"><svg id="chart" viewBox="0 0 600 230" role="img" aria-label="Grafik telemetri contoh"></svg></div>
+        </div>
+        <div class="side">
+          <div><div class="k">Waktu terbaik</div><div class="big">1:37.542</div></div>
+          <div><div class="k">Lokasi</div><div class="v">Sirkuit uji</div></div>
+          <div><div class="k">Tanggal</div><div class="v">12 Mei 2026</div></div>
+          <div><div class="k">Kondisi</div><div class="v">28°C / Kering</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="armada" class="sec">
+    <div class="lbl">Koleksi pilihan</div>
+    <h2>Pilih <em>senjata</em> Anda</h2>
+    <div class="filters" id="filters"></div>
+    <div class="grid" id="cars"><p>Memuat armada…</p></div>
+  </section>
+
+  <section class="sec">
+    <div class="specs">
+      <div>
+        <div class="lbl">Spesifikasi layanan</div>
+        <table>
+          <tr><td>Layanan</td><td>Lepas kunci / sopir</td></tr>
+          <tr><td>Usia min.</td><td>25 tahun</td></tr>
+          <tr><td>Dokumen</td><td>KTP &amp; SIM A</td></tr>
+          <tr><td>Pembayaran</td><td>DP + deposit</td></tr>
+          <tr><td>Bahan bakar</td><td>Ditanggung penyewa</td></tr>
+          <tr><td>Durasi</td><td>Harian</td></tr>
+          <tr><td>Antar jemput</td><td>Tersedia</td></tr>
+        </table>
+        <button style="margin-top:14px;width:100%" data-go="syarat">Lihat syarat sewa ⤓</button>
+      </div>
+      <div class="engine">
+        <svg viewBox="0 0 220 180" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="30" y="60" width="160" height="70" rx="8" fill="#0d0d0f"/><path d="M50 60V40h30v20M95 60V30h30v30M140 60V40h30v20"/><circle cx="60" cy="95" r="14"/><circle cx="110" cy="95" r="14"/><circle cx="160" cy="95" r="14"/><path d="M30 145h160M50 130v15M170 130v15M20 80h10M190 80h10"/></svg>
+      </div>
+      <div>
+        <h2>Dirancang<br>untuk <em>kenyamanan</em></h2>
+        <p class="muted">Dari perawatan menyeluruh hingga pengantaran ke lokasi Anda, semua disiapkan agar Anda tinggal berkendara.</p>
+        <div class="icons">
+          <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 20l8-16 8 16-8-4z"/></svg>Unit prima</div>
+          <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="8"/><path d="M12 7v5l3 2"/></svg>Tepat waktu</div>
+          <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3l8 4v5c0 5-4 8-8 9-4-1-8-4-8-9V7z"/></svg>Asuransi</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="aero">
+      <div>
+        <div class="lbl">Dibuat dengan presisi</div>
+        <h2>Tenaga.<br>Di mana<br>berarti.</h2>
+        <p class="muted">Setiap lengkung dan setiap detail membuat perjalanan lebih stabil dan lebih seru.</p>
+        <button data-go="armada">Selengkapnya ›</button>
+      </div>
+      <div class="car">
+        <img class="photo" src="img/aero.jpg" alt="Mobil sport Laju Prestige" loading="lazy" onload="this.nextElementSibling.style.display='none'" onerror="this.remove()">
+        <svg viewBox="0 0 400 120" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M0 40c80-8 140-8 200 6M0 60c90-6 150-4 210 10M0 78c80-4 150 0 220 14" stroke="#ff5a0a" opacity=".6"/><path d="M14 86c0-8 4-14 14-17l54-10c22-17 46-27 78-27 40 0 66 12 92 31l92 12c10 2 16 8 16 18v4c0 4-3 6-7 6h-30M60 92H21c-4 0-7-2-7-6M117 92h148" fill="#0d0d0f"/><path d="M96 58c18-12 38-19 62-19 30 0 52 8 74 22" stroke="#ff5a0a"/><circle cx="88" cy="92" r="24" fill="#080809"/><circle cx="88" cy="92" r="10" stroke="#ff5a0a"/><circle cx="292" cy="92" r="24" fill="#080809"/><circle cx="292" cy="92" r="10" stroke="#ff5a0a"/></svg>
+      </div>
+      <div class="kv">
+        <div class="k">Tenaga maks.</div><div class="v">820 HP</div>
+        <div class="k">Torsi</div><div class="v">780 Nm</div>
+        <div class="k">Kenyamanan</div><div class="v or">+32%</div>
+        <div class="k">Kepuasan</div><div class="v or">+98%</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="proses" class="sec">
+    <div class="steps">
+      <div class="ph"><span>Pesan</span><img class="shot" src="img/pesan.jpg" alt="Pesan mobil" loading="lazy" onload="this.nextElementSibling.style.display='none'" onerror="this.remove()"><svg viewBox="0 0 400 120" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"><path d="M14 86c0-8 4-14 14-17l54-10c22-17 46-27 78-27 40 0 66 12 92 31l92 12c10 2 16 8 16 18v4c0 4-3 6-7 6h-30M60 92H21c-4 0-7-2-7-6M117 92h148"/><circle cx="88" cy="92" r="24"/><circle cx="292" cy="92" r="24"/></svg></div>
+      <div class="arrow">Konfirmasi<i></i></div>
+      <div class="ph after"><span>Berkendara</span><img class="shot" src="img/berkendara.jpg" alt="Berkendara dengan mobil sewaan" loading="lazy" onload="this.nextElementSibling.style.display='none'" onerror="this.remove()"><svg viewBox="0 0 400 120" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"><path d="M14 86c0-8 4-14 14-17l54-10c22-17 46-27 78-27 40 0 66 12 92 31l92 12c10 2 16 8 16 18v4c0 4-3 6-7 6h-30M60 92H21c-4 0-7-2-7-6M117 92h148"/><path d="M96 58c18-12 38-19 62-19 30 0 52 8 74 22" stroke="#ff5a0a"/><circle cx="88" cy="92" r="24"/><circle cx="292" cy="92" r="24"/></svg></div>
+      <div class="kv">
+        <div class="k">Waktu proses</div><div class="v" style="color:#ff2d1a">&lt; 15 menit</div>
+        <div class="k">Konfirmasi admin</div><div class="v or">Cepat</div>
+        <div class="k">Antar unit</div><div class="v">Sesuai jadwal</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="lbl">Kata pelanggan (contoh)</div>
+    <div class="testi">
+      <div class="t"><div class="av">R</div><div>“Unit bersih dan prima, proses sewanya cepat sekali.”<b>Rizky A.</b><small>Penyewa akhir pekan</small></div></div>
+      <div class="t"><div class="av">D</div><div>“Pakai sopir pribadi untuk acara pernikahan, semuanya mulus.”<b>Dewi S.</b><small>Acara pernikahan</small></div></div>
+      <div class="t"><div class="av">B</div><div>“Langsung berangkat tanpa ribet. Pasti sewa lagi.”<b>Bimo P.</b><small>Perjalanan bisnis</small></div></div>
+    </div>
+  </section>
+
+  <section id="pesan" class="sec">
+    <div class="cta-sec">
+      <div>
+        <div class="lbl">Siap berkendara?</div>
+        <h2>Ayo pesan<br>sekarang.</h2>
+        <p class="muted">Isi detail pesanan Anda. Tim kami akan mengonfirmasi secepatnya.</p>
+        <div class="total" id="total">Rp 0</div>
+        <div id="detail" class="muted"></div>
+      </div>
+      <form id="form" novalidate>
+        <div class="row">
+          <div><label for="car">Mobil</label><select id="car" required></select><div class="booked" id="booked"></div></div>
+          <div><label for="drv">Layanan</label><select id="drv"><option value="0">Lepas kunci</option><option value="1">Dengan sopir pribadi</option></select></div>
+        </div>
+        <div class="row">
+          <div><label for="start">Tanggal mulai</label><input type="date" id="start" required></div>
+          <div><label for="end">Tanggal selesai</label><input type="date" id="end" required></div>
+        </div>
+        <div class="row">
+          <div><label for="name">Nama lengkap</label><input id="name" autocomplete="name" required></div>
+          <div><label for="phone">Nomor HP / WhatsApp</label><input id="phone" inputmode="tel" autocomplete="tel" placeholder="0812xxxxxxx" required></div>
+        </div>
+        <div style="margin-bottom:12px"><label for="notes">Catatan (opsional)</label><textarea id="notes" rows="2" placeholder="Lokasi jemput, jam, dll."></textarea></div>
+        <button class="primary" type="submit" id="submit">Kirim pesanan ›</button>
+        <button type="button" id="reset">Kosongkan form</button>
+        <div class="msg" id="msg" role="status"></div>
+      </form>
+    </div>
+  </section>
+
+  <section id="cek" class="sec">
+    <div class="lbl">Status pesanan</div>
+    <h2>Cek pesanan</h2>
+    <div class="row"><div><label for="lookPhone">Nomor HP yang dipakai saat memesan</label><input id="lookPhone" inputmode="tel"></div></div>
+    <button id="lookBtn">Cari pesanan</button>
+    <div id="lookRes" class="tablewrap" style="margin-top:12px"></div>
+  </section>
+
+  <section id="syarat" class="sec">
+    <div class="lbl">Ketentuan</div>
+    <h2>Syarat sewa</h2>
+    <ul class="terms">
+      <li>Penyewa berusia minimal 25 tahun dengan KTP dan SIM A yang masih berlaku (lepas kunci).</li>
+      <li>Deposit jaminan dan DP dibayar setelah pesanan dikonfirmasi admin.</li>
+      <li>Bahan bakar dan tol ditanggung penyewa.</li>
+      <li>Pembatalan hanya bisa dilakukan selama pesanan berstatus menunggu.</li>
+    </ul>
+  </section>
+</main>
+
+<footer><div class="wrap">
+  <div class="fgrid">
+    <div><div class="logo">LAJU<b>PRESTIGE</b></div><p class="muted" style="font-size:.8rem">Mobil sport dan mewah.<br>Dirancang tanpa kompromi.</p></div>
+    <div><h4>Jelajahi</h4><ul><li><a href="#armada">Koleksi</a></li><li><a href="#performa">Performa</a></li><li><a href="#proses">Proses</a></li><li><a href="#pesan">Pesan</a></li></ul></div>
+    <div><h4>Bantuan</h4><ul><li><a href="#cek">Cek pesanan</a></li><li><a href="#syarat">Syarat sewa</a></li></ul></div>
+    <div><h4>Perusahaan</h4><ul><li><a href="/admin.html">Admin</a></li></ul></div>
+    <div><h4>Hubungi kami</h4><ul><li>Chat langsung lewat WhatsApp untuk pertanyaan dan konfirmasi.</li></ul><a class="btn primary" id="waFoot" target="_blank" rel="noopener" style="margin-top:10px">Chat WhatsApp</a></div>
+  </div>
+  <div class="copy"><span>© 2026 Laju Prestige. Hak cipta dilindungi.</span><span>Harga, data, dan testimoni di halaman ini contoh. Ubah lewat halaman <a href="/admin.html" style="color:var(--or)">admin</a>.</span></div>
+</div></footer>
+
+<script>
+const $ = id => document.getElementById(id);
+const rp = n => 'Rp ' + Number(n).toLocaleString('id-ID');
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const STATUS = {pending:'Menunggu',confirmed:'Dikonfirmasi',done:'Selesai',cancelled:'Dibatalkan'};
+let cars = [], cat = 'Semua', wa = '';
+
+async function api(url, opt) {
+  const r = await fetch(url, opt && {...opt, headers: {'Content-Type':'application/json'}, body: JSON.stringify(opt.body)});
+  const d = await r.json().catch(() => ({}));
+  if (!r.ok) throw new Error(d.error || 'Gagal menghubungi server.');
+  return d;
+}
+function show(type, text) { const m = $('msg'); m.className = 'msg ' + type; m.innerHTML = text; }
+
+// Navigasi
+document.querySelectorAll('[data-go]').forEach(b => b.onclick = () => $(b.dataset.go).scrollIntoView({behavior:'smooth'}));
+
+// Telemetri (grafik contoh)
+const SERIES = {
+  'Kecepatan':[20,60,110,150,120,90,140,180,150,200,170,210,190,230,210,240,220,250,230],
+  'G Force':[10,40,70,50,90,60,100,70,110,80,120,90,110,80,100,90,95,85,90],
+  'Throttle':[30,80,120,60,140,100,160,120,180,140,200,150,190,160,200,170,210,180,200],
+  'Rem':[60,20,90,30,80,25,70,20,60,15,50,20,45,15,40,10,35,10,30],
+  'RPM':[40,90,140,100,170,120,180,140,200,150,190,160,200,170,210,180,205,185,200],
+  'Suhu':[50,55,60,64,68,72,75,78,80,82,84,85,86,87,88,88,89,89,90]
+};
+let tab = 'Kecepatan';
+function drawChart() {
+  $('tabs').innerHTML = Object.keys(SERIES).map(k => `<button aria-pressed="${k===tab}" data-t="${k}">${k}</button>`).join('');
+  $('tabs').querySelectorAll('button').forEach(b => b.onclick = () => { tab = b.dataset.t; drawChart(); });
+  const d = SERIES[tab], W = 600, H = 230, p = 28, max = Math.max(...d) * 1.1;
+  const pts = d.map((v,i) => [p + i*(W-p*2)/(d.length-1), H-p - v/max*(H-p*2)]);
+  let g = '';
+  for (let i=0;i<5;i++) { const y = p + i*(H-p*2)/4; g += `<line x1="${p}" x2="${W-p}" y1="${y}" y2="${y}" stroke="#25252a"/>`; }
+  for (let i=0;i<7;i++) { const x = p + i*(W-p*2)/6; g += `<line y1="${p}" y2="${H-p}" x1="${x}" x2="${x}" stroke="#1a1a1d"/>`; }
+  const line = pts.map(q => q.join(',')).join(' ');
+  $('chart').innerHTML = g + `<polygon points="${p},${H-p} ${line} ${W-p},${H-p}" fill="rgba(255,90,10,.12)"/><polyline points="${line}" fill="none" stroke="#ff5a0a" stroke-width="2.5" stroke-linejoin="round"/>`;
+}
+
+function renderFilters() {
+  const cats = ['Semua', ...new Set(cars.map(c => c.category))];
+  $('filters').innerHTML = cats.map(c => `<button type="button" aria-pressed="${c===cat}" data-cat="${esc(c)}">${esc(c)}</button>`).join('');
+  $('filters').querySelectorAll('button').forEach(b => b.onclick = () => { cat = b.dataset.cat; renderFilters(); renderCars(); });
+}
+const slug = s => String(s).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+function renderCars() {
+  const SVG = `<svg viewBox="0 0 400 120" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M14 86c0-8 4-14 14-17l54-10c22-17 46-27 78-27 40 0 66 12 92 31l92 12c10 2 16 8 16 18v4c0 4-3 6-7 6h-30M60 92H21c-4 0-7-2-7-6M117 92h148"/><path d="M96 58c18-12 38-19 62-19 30 0 52 8 74 22M188 40l2 22" stroke="#ff5a0a"/><circle cx="88" cy="92" r="24"/><circle cx="88" cy="92" r="10" stroke="#ff5a0a"/><circle cx="292" cy="92" r="24"/><circle cx="292" cy="92" r="10" stroke="#ff5a0a"/></svg>`;
+  const list = cars.filter(c => cat === 'Semua' || c.category === cat);
+  $('cars').innerHTML = list.map(c => `
+    <article class="car-card ${+$('car').value===c.id?'sel':''}">
+      <div class="pic"><img src="${esc(c.image_url || 'img/cars/' + slug(c.name) + '.jpg')}" alt="${esc(c.name)}" loading="lazy"></div>
+      <div class="info">
+        <h3>${esc(c.name)}</h3><div class="cat">${esc(c.category)}</div>
+        <div class="mini"><div><b>${esc(c.seats)}</b>Kursi</div><div><b>${esc(c.transmission)}</b>Transmisi</div><div><b>${esc(c.fuel)}</b>BBM</div></div>
+        <div class="price">${rp(c.price_per_day)} <span>/ hari</span></div>
+      </div>
+      <button class="go" data-pick="${c.id}">Pilih mobil ini</button>
+    </article>`).join('') || '<p>Belum ada mobil di kategori ini.</p>';
+  $('cars').querySelectorAll('.pic img').forEach(i => i.onerror = () => { i.outerHTML = SVG; });
+  $('cars').querySelectorAll('[data-pick]').forEach(b => b.onclick = () => {
+    $('car').value = b.dataset.pick; update(); showBooked(); renderCars(); $('pesan').scrollIntoView({behavior:'smooth'});
+  });
+}
+
+async function showBooked() {
+  const id = $('car').value; if (!id) return;
+  const rows = await api(`/api/cars/${id}/booked`).catch(() => []);
+  $('booked').textContent = rows.length ? 'Sudah dipesan: ' + rows.map(r => `${r.start_date} s/d ${r.end_date}`).join(', ') : 'Semua tanggal masih tersedia.';
+}
+function update() {
+  const c = cars.find(x => x.id == $('car').value);
+  const s = $('start').value, e = $('end').value;
+  if (!c || !s || !e || e < s) { $('total').textContent = 'Rp 0'; $('detail').textContent = e && s && e < s ? 'Tanggal selesai harus setelah tanggal mulai.' : ''; return; }
+  const d = Math.round((new Date(e) - new Date(s)) / 864e5) + 1, drv = $('drv').value === '1';
+  const per = c.price_per_day + (drv ? c.driver_fee : 0);
+  $('total').textContent = rp(d * per);
+  $('detail').textContent = `${d} hari × ${rp(per)}${drv ? ' (termasuk sopir)' : ''}`;
+}
+['car','drv','start','end'].forEach(i => $(i).addEventListener('change', () => { update(); if (i==='car') { showBooked(); renderCars(); } }));
+
+$('form').onsubmit = async ev => {
+  ev.preventDefault(); const btn = $('submit'); btn.disabled = true; btn.textContent = 'Mengirim…';
+  try {
+    const r = await api('/api/bookings', {method:'POST', body:{
+      car_id:+$('car').value, customer_name:$('name').value, phone:$('phone').value,
+      start_date:$('start').value, end_date:$('end').value, with_driver:$('drv').value==='1', notes:$('notes').value }});
+    const text = encodeURIComponent(`Halo Laju Rental, saya sudah memesan.\nKode: ${r.code}\nMobil: ${r.car}\nTanggal: ${$('start').value} s/d ${$('end').value}\nTotal: ${rp(r.total_price)}\nAtas nama: ${$('name').value}`);
+    show('ok', `Pesanan terkirim. Kode Anda <b>${esc(r.code)}</b>, total ${rp(r.total_price)}. <a href="https://wa.me/${wa}?text=${text}" target="_blank" rel="noopener">Konfirmasi lewat WhatsApp</a>`);
+    $('lookPhone').value = $('phone').value; showBooked();
+  } catch (e) { show('err', esc(e.message)); }
+  btn.disabled = false; btn.textContent = 'Kirim pesanan ›';
+};
+$('reset').onclick = () => { $('form').reset(); $('msg').className = 'msg'; update(); };
+
+async function lookup() {
+  const p = $('lookPhone').value.trim();
+  if (!p) { $('lookRes').textContent = 'Isi nomor HP terlebih dahulu.'; return; }
+  try {
+    const rows = await api('/api/bookings/lookup?phone=' + encodeURIComponent(p));
+    $('lookRes').innerHTML = rows.length ? `<table><tr><th>Kode</th><th>Mobil</th><th>Tanggal</th><th>Total</th><th>Status</th><th></th></tr>` +
+      rows.map(r => `<tr><td>${esc(r.code)}</td><td>${esc(r.car)}</td><td>${esc(r.start_date)} s/d ${esc(r.end_date)}</td><td>${rp(r.total_price)}</td><td><span class="tag">${STATUS[r.status]}</span></td>
+      <td>${r.status==='pending' ? `<button data-cancel="${esc(r.code)}">Batalkan</button>` : ''}</td></tr>`).join('') + '</table>' : 'Tidak ada pesanan untuk nomor ini.';
+    $('lookRes').querySelectorAll('[data-cancel]').forEach(b => b.onclick = async () => {
+      if (!confirm('Batalkan pesanan ' + b.dataset.cancel + '?')) return;
+      try { await api(`/api/bookings/${b.dataset.cancel}/cancel`, {method:'POST', body:{phone:p}}); lookup(); showBooked(); }
+      catch (e) { alert(e.message); }
+    });
+  } catch (e) { $('lookRes').textContent = e.message; }
+}
+$('lookBtn').onclick = lookup;
+
+(async () => {
+  const t = new Date().toISOString().slice(0,10); $('start').min = $('end').min = t;
+  drawChart();
+  try {
+    const [c, cfg] = await Promise.all([api('/api/cars'), api('/api/config')]);
+    cars = c; wa = cfg.wa; $('waTop').href = $('waFoot').href = `https://wa.me/${wa}`;
+    $('statCars').textContent = cars.length;
+    $('car').innerHTML = cars.map(x => `<option value="${x.id}">${esc(x.name)} – ${rp(x.price_per_day)}/hari</option>`).join('');
+    renderFilters(); renderCars(); showBooked(); update();
+  } catch (e) { $('cars').innerHTML = `<p>${esc(e.message)} Pastikan server dan database sudah jalan.</p>`; }
+})();
+</script>
+</body>
+</html>
